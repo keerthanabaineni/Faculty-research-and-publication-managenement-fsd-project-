@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Faculty Research and Publication</title>
+        <link rel="stylesheet" href="./fsdstyle.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+        <h2 id="heading">JNTU COLLEGE OF ENGINEERING ANANTHAPUR</h2>
+        <div class="container mt-5">
+            <h2 class="text-center">Faculty Research and Publication</h2>
+            <div id="user-selection" class="text-center mt-4">
+                <button class="btn btn-primary" onclick="selectUser('student')">Student</button>
+                <button class="btn btn-secondary" onclick="selectUser('faculty')">Faculty</button>
+            </div>
+            
+            <div id="student-options" class="d-none mt-4">
+                <h3>Search Research or Publication</h3>
+                <select id="search-type" class="form-select mb-2">
+                    <option value="research">Research</option>
+                    <option value="publication">Publication</option>
+                </select>
+                <input type="text" id="faculty-name" class="form-control mb-2" placeholder="Enter Faculty Name">
+                <button class="btn btn-success" onclick="searchInfo()">Search</button>
+                <div id="search-results" class="mt-3"></div>
+            </div>
+            
+            <div id="faculty-options" class="d-none mt-4">
+                <h3>Faculty Portal</h3>
+                <button class="btn btn-info" onclick="showUploadForm()">Upload Research/Publication</button>
+                <button class="btn btn-warning" onclick="showSearchForm()">Search Faculty</button>
+
+                <div id="upload-form" class="d-none mt-3">
+                    <h4>Upload Research/Publication</h4>
+                    <form action="/upload" method="POST" enctype="multipart/form-data">
+                        <input type="text" name="facultyName" class="form-control mb-2" placeholder="Faculty Name" required>
+                        <input type="text" name="department" class="form-control mb-2" placeholder="Department" required>
+                        <input type="text" name="title" class="form-control mb-2" placeholder="Title" required>
+                        <textarea name="abstract" class="form-control mb-2" placeholder="Abstract" rows="4" required></textarea>
+                        
+                        <select name="type" class="form-select mb-2">
+                            <option value="research">Research</option>
+                            <option value="publication">Publication</option>
+                        </select>
+                        
+                        <input type="file" name="file" class="form-control mb-2" accept=".pdf" required>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                    
+                </div>
+                
+                <div id="faculty-search" class="mt-3">
+                    <h4>Search Faculty</h4>
+                    <input type="text" id="search-faculty-name" class="form-control mb-2" placeholder="Enter Faculty Name">
+                    <button class="btn btn-success" onclick="searchFaculty()">Search</button>
+                    <div id="faculty-search-results" class="mt-3"></div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <footer class="text-center mt-5 p-3 bg-light">
+            <p>&copy; 2025 JNTUA CEA. All rights reserved.</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="fsd.js"></script>
+    </body>
+</html>
